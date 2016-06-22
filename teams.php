@@ -17,6 +17,7 @@
 					"BIG" => "BG",
 					//LCK
 					"AFREECA F" => "AFC",
+					"CJ ENTUS" => "CJ",
 					//LMS
 					"J TEAM" => "JT",
 					"MACHI" => "M17",
@@ -24,11 +25,14 @@
 					"XGAMERS" => "XG",
 					//LPL
 					"SNAKE" => "SNK",
+					"SNT" => "SAT",
 					//LSPL
 					"TBEAR" => "TBG",
 					"ING." => "ING",
 					"SHR" => "SHRC",
 					"NEWBEE" => "NBY",
+					"YGM" => "YM",
+					"RVG []" => "RVGR",
 					),
 			)
 		);
