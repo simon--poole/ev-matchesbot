@@ -10,6 +10,8 @@
 					"ORIGEN" => "OG",
 					"VTA" => "VIT",
 					"EFOX" => "EFX",
+					"GIANTS" => "GIA",
+					"SPLYCE" => "SPY",
 					//NALCS
 					"IMMORTALS" => "IMT",
 					//CBLOL
@@ -18,6 +20,7 @@
 					//LCK
 					"AFREECA F" => "AFC",
 					"CJ ENTUS" => "CJ",
+					"SAMSUNG G" => "SSG",
 					//LMS
 					"J TEAM" => "JT",
 					"MACHI" => "M17",
@@ -26,6 +29,7 @@
 					//LPL
 					"SNAKE" => "SNK",
 					"SNT" => "SAT",
+					"IMAY" => "IM",
 					//LSPL
 					"TBEAR" => "TBG",
 					"ING." => "ING",
