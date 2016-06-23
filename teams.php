@@ -21,9 +21,11 @@
 					"AFREECA F" => "AFC",
 					"CJ ENTUS" => "CJ",
 					"SAMSUNG G" => "SSG",
+					"LONGZHU IM" => "LZ",
+					"SKT T1" => "SKT",
 					//LMS
 					"J TEAM" => "JT",
-					"MACHI" => "M17",
+					"MACHI" => "MAC",
 					"YOEFW" => "FW",
 					"XGAMERS" => "XG",
 					//LPL
