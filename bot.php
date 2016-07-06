@@ -22,7 +22,7 @@
 		}
 
 		//Instance settings
-		private $config, $api, $token; 
+		private $config, $api, $token;
 		public function __construct($config){
 			$this->config = $config;
 			$this->api = new \GosuGamers\Matchticker\Api($config['api_key']);
@@ -48,8 +48,8 @@
 			return array_map(function($i){
 				$tournament = $i->tournament->name;
 				$time = ($i->isLive) ? null : new DateTime($i->datetime);
-				$team1 = Team::format($i->firstOpponent->shortName, $this->config['game']);
-				$team2 = Team::format($i->secondOpponent->shortName, $this->config['game']);
+				$team1 = Team::format($i->firstOpponent->shortName, $this->config);
+				$team2 = Team::format($i->secondOpponent->shortName, $this->config);
 				$tournamentURL = $this->shortenURL($i->tournament->pageUrl);
 				$matchURL = $this->shortenURL($i->pageUrl);
 				$stream = (count($i->streams) > 0 && $i->streams[0]->isLive) ? $this->shortenURL($i->streams[0]->pageUrl) : null;
@@ -72,10 +72,12 @@
 		private function parseMatches($matches){
 			$result = "[](#matches_start)".PHP_EOL.PHP_EOL."* **Upcoming Matches**";
 			$previous_label = "";
-			$count = 0;
+			if(count($matches) === 0)
+				$result .= PHP_EOL."* No upcoming matches!";
 			$now = new DateTime();
 			foreach($matches as $match){
 				$spoiler = false;//$this->checkSpoiler($match[0], $match[1], $match[2]);
+				$icons = $this->config['icons'];
 				if(is_null($match[3]))
 					$time = (is_null($match[6])) ? "**[LIVE](#countdown)**" : "**[LIVE]($match[6]#stream)**";
 				else {
@@ -92,12 +94,19 @@
 					$result .= "* $time";
 				}
 				$previous_label = $match[0];
-				if($spoiler)
+				if($icons && $spoiler)
 					$result .= PHP_EOL."* [$match[2]](#spoiler) [](#default) [vs]($match[5]) [](#default) [$match[1]](#spoiler)";
-				else	{
+				else if ($icons)
+				{
 					$icon1 = strtolower($match[1]);
 					$icon2 = strtolower($match[2]);
 					$result .= PHP_EOL."* [$match[2]](#team) [](#$icon2) [vs]($match[5]) [](#$icon1) [$match[1]](#team)";
+				}
+				else if($spoiler){
+					$result .= PHP_EOL."* [$match[2]](#spoiler) [vs]($match[5]) [$match[1]](#spoiler)";
+				}
+				else {
+					$result .= PHP_EOL."* [$match[2] vs $match[1]]($match[5])";
 				}
 			}
 			$result .= PHP_EOL."* **Powered by [GosuGamers](".$this->config['credits'].")**";
@@ -123,7 +132,7 @@
 			$this->login();
 			$response = \Httpful\Request::get("https://oauth.reddit.com/r/".$this->config['subreddit']."/about/edit/.json")
 				->expectsJson()
-				->addHeader('Authorization', "bearer $this->token") 
+				->addHeader('Authorization', "bearer $this->token")
 				->userAgent(Bot::USERAGENT)
 				->send();
 			$sidebar = preg_replace("/\[\]\(#matches_start\)[\s\S]*\[\]\(#matches_end\)/", $table, $response->body->data->description, 1);
@@ -140,12 +149,13 @@
 				->sendsType(\Httpful\Mime::FORM)
 				->expectsJson()
 				->body($settings)
-				->addHeader('Authorization', "bearer $this->token") 
+				->addHeader('Authorization', "bearer $this->token")
 				->userAgent(Bot::USERAGENT)
 				->send();
 			var_dump($response->body);
 		}
 	}
 	Bot::addConfig('configs/lol.conf');
+	Bot::addConfig('configs/hs.conf');
 	Bot::run();
 ?>
