@@ -12,6 +12,8 @@
 					"EFOX" => "EFX",
 					"GIANTS" => "GIA",
 					"SPLYCE" => "SPY",
+					//EUCS
+					"[M]" => "MIL",
 					//NALCS
 					"IMMORTALS" => "IMT",
 					//CBLOL
@@ -23,6 +25,8 @@
 					"SAMSUNG G" => "SSG",
 					"LONGZHU IM" => "LZ",
 					"SKT T1" => "SKT",
+					"KT ROLSTER" => "KT",
+					"JINAIR GW" => "JAG",
 					//LMS
 					"J TEAM" => "JT",
 					"MACHI" => "MAC",
