@@ -142,8 +142,6 @@
 			$settings['link_type'] = $settings['content_options'];
 			$settings['type'] = $settings['subreddit_type'];
 			$settings['over_18'] = "false";
-			$settings['captcha'] = "IDBYDV";
-			$settings['iden'] = "9CLVYcfurnF0OMcJtFzvrkzb4iUzLUCS";
 			unset($settings['hide_ads']);
 			$response = \Httpful\Request::post("https://oauth.reddit.com/api/site_admin?api_type=json")
 				->sendsType(\Httpful\Mime::FORM)
