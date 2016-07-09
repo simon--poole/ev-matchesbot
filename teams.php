@@ -28,6 +28,7 @@
 					"SKT T1" => "SKT",
 					"KT ROLSTER" => "KT",
 					"JINAIR GW" => "JAG",
+					"ROX TIGERS" => "ROX",
 					//LMS
 					"J TEAM" => "JT",
 					"MACHI" => "MAC",
@@ -66,7 +67,7 @@
 			else {
 				$team = str_replace(self::Teams["global"], "", $team);
 				$team = trim(str_replace(self::Teams[$game]["remove"], "", $team));
-				return substr($team, 0, 8);
+				return $team;
 			}
 		}
 

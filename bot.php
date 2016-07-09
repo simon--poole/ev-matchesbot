@@ -106,7 +106,7 @@
 					$result .= PHP_EOL."* [$match[2]](#spoiler) [vs]($match[5]) [$match[1]](#spoiler)";
 				}
 				else {
-					$result .= PHP_EOL."* [$match[2] vs $match[1]]($match[5])";
+					$result .= PHP_EOL."* [$match[2]](#team) [vs]($match[5]) [$match[1]](#team)";
 				}
 			}
 			$result .= PHP_EOL."* **Powered by [GosuGamers](".$this->config['credits'].")**";
