@@ -154,7 +154,7 @@
 			var_dump($response->body);
 		}
 	}
-	//Bot::addConfig('configs/lol.conf');
+	Bot::addConfig('configs/lol.conf');
 	Bot::addConfig('configs/hs.conf');
 	Bot::run();
 ?>
