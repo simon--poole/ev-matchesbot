@@ -14,7 +14,7 @@
 					"GIANTS" => "GIA",
 					"SPLYCE" => "SPY",
 					//EUCS
-					"[M]" => "MIL",
+					"M" => "MIL",
 					//NALCS
 					"IMMORTALS" => "IMT",
 					//CBLOL
