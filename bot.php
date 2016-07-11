@@ -2,6 +2,7 @@
 	require('lib/GosuGamers.php');
 	require('lib/httpful.phar');
 	require('teams.php');
+	require('spoiler.php');
 	use GosuGamers\Matchticker\Game;
 	class Bot {
 
@@ -76,7 +77,7 @@
 				$result .= PHP_EOL."* No upcoming matches!";
 			$now = new DateTime();
 			foreach($matches as $match){
-				$spoiler = false;//$this->checkSpoiler($match[0], $match[1], $match[2]);
+				$spoiler = Spoiler::Check($match[0], $this->config);
 				$icons = $this->config['icons'];
 				if(is_null($match[3]))
 					$time = (is_null($match[6])) ? "**[LIVE](#countdown)**" : "**[LIVE]($match[6]#stream)**";
@@ -153,7 +154,7 @@
 			var_dump($response->body);
 		}
 	}
-	Bot::addConfig('configs/lol.conf');
+	//Bot::addConfig('configs/lol.conf');
 	Bot::addConfig('configs/hs.conf');
 	Bot::run();
 ?>

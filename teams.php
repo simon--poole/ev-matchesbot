@@ -48,7 +48,7 @@
 					),
 			),
 			"hearthstone" => array(
-				"remove" => array(),
+				"remove" => array(".HS", " HS", "-HS"),
 				"replace" => array()
 			)
 		);
