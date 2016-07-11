@@ -7,7 +7,7 @@
 	}
 	class Spoiler {
 		const terms = array(
-			"global" => array("playoffs", "ro"),
+			"global" => array("playoffs", "ro16", "ro8", "final"),
 			"lol" => array(),
 			"hs" => array(),
 		);
