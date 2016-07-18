@@ -50,6 +50,17 @@
 			"hearthstone" => array(
 				"remove" => array(".HS", " HS", "-HS"),
 				"replace" => array()
+			),
+			"overwatch" => array(
+				"remove" => array(".OW", " OW", "-OW"),
+				"replace" => array()
+			),
+			"dota2" => array(
+				"remove" => array(".DOTA", " DOTA", "-DOTA"),
+				"replace" => array(
+					"Elements." => "Elements",
+					"G5." => "G5"
+				)
 			)
 		);
 		public static function format($team, $config){
@@ -65,8 +76,12 @@
 				return substr($team, 0, 5);
 			}
 			else {
+				echo "Replaced $team => ";
 				$team = str_replace(self::Teams["global"], "", $team);
 				$team = trim(str_replace(self::Teams[$game]["remove"], "", $team));
+				if(array_key_exists($team, self::Teams[$game]["replace"]))
+					$team = self::Teams[$game]['replace'][$team];
+				echo $team.PHP_EOL;
 				return $team;
 			}
 		}

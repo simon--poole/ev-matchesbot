@@ -156,5 +156,7 @@
 	}
 	Bot::addConfig('configs/lol.conf');
 	Bot::addConfig('configs/hs.conf');
+	Bot::addConfig('configs/ow.conf');
+	Bot::addConfig('configs/dota.conf');
 	Bot::run();
 ?>
