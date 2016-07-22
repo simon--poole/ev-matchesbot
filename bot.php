@@ -54,7 +54,8 @@
 				$tournamentURL = $this->shortenURL($i->tournament->pageUrl);
 				$matchURL = $this->shortenURL($i->pageUrl);
 				$stream = (count($i->streams) > 0 && $i->streams[0]->isLive) ? $this->shortenURL($i->streams[0]->pageUrl) : null;
-				return array($tournament, $team1, $team2, $time, $tournamentURL, $matchURL, $stream);
+				$spoiler  = Spoiler::Check($tournament, $i->description, $this->config);
+				return array($tournament, $team1, $team2, $time, $tournamentURL, $matchURL, $stream, $spoiler);
 			}, $matches);
 		}
 		private function sortMatches($matches){
@@ -77,7 +78,7 @@
 				$result .= PHP_EOL."* No upcoming matches!";
 			$now = new DateTime();
 			foreach($matches as $match){
-				$spoiler = Spoiler::Check($match[0], $this->config);
+				$spoiler = $match[7];
 				$icons = $this->config['icons'];
 				if(is_null($match[3]))
 					$time = (is_null($match[6])) ? "**[LIVE](#countdown)**" : "**[LIVE]($match[6]#stream)**";

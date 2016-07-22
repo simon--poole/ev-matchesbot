@@ -7,12 +7,13 @@
 	}
 	class Spoiler {
 		const terms = array(
-			"global" => array("playoffs", "ro16", "ro8", "final"),
+			"global" => array("playoffs", "ro16", "ro8", "final","bracket"),
 			"lol" => array(),
 			"hs" => array(),
 		);
-		public static function Check($title, $config){
+		public static function Check($title,$desc,  $config){
 			if(str_contains_terms($title, self::terms["global"])) return true;
+			if(str_contains_terms($desc, self::terms["global"])) return true;
 			return false;
 		}
 	}

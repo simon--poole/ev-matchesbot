@@ -56,10 +56,14 @@
 				"replace" => array()
 			),
 			"dota2" => array(
-				"remove" => array(".DOTA", " DOTA", "-DOTA"),
+				"remove" => array(".DOTA", " DOTA", "-DOTA", ".Dota2", ".DotA2", "Dota2"),
 				"replace" => array(
 					"Elements." => "Elements",
-					"G5." => "G5"
+					"G5." => "G5",
+					".Escape" => "Escape",
+					"Vega." => "Vega",
+					"Fnatic." => "Fnatic",
+					"FRIENDS." => "FRIENDS"
 				)
 			)
 		);
