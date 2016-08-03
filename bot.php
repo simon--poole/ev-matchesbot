@@ -54,7 +54,7 @@
 				$tournamentURL = $this->shortenURL($i->tournament->pageUrl);
 				$matchURL = $this->shortenURL($i->pageUrl);
 				$stream = (count($i->streams) > 0 && $i->streams[0]->isLive) ? $this->shortenURL($i->streams[0]->pageUrl) : null;
-				$spoiler  = Spoiler::Check($tournament, $i->description, $this->config);
+				$spoiler  = Spoiler::Check($tournament, $i->description, $this->config, $team1, $team2);
 				return array($tournament, $team1, $team2, $time, $tournamentURL, $matchURL, $stream, $spoiler);
 			}, $matches);
 		}
