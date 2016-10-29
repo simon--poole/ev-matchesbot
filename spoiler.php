@@ -12,7 +12,7 @@
 		const terms = array(
 			"global" => array("playoffs", "ro16", "ro8", "final","bracket"),
 			"lol" => array(),
-			"hs" => array(),
+			"hs" => array("championship"),
 		);
 		public static function Check($title,$desc,  $config, $team1, $team2){
 			if(str_contains_terms($title, self::terms["global"])) return true;

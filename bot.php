@@ -1,4 +1,5 @@
 <?php
+	opcache_reset();
 	require('lib/GosuGamers.php');
 	require('lib/httpful.phar');
 	require('teams.php');
@@ -57,6 +58,7 @@
 				$spoiler  = Spoiler::Check($tournament, $i->description, $this->config, $team1, $team2);
 				return array($tournament, $team1, $team2, $time, $tournamentURL, $matchURL, $stream, $spoiler);
 			}, $matches);
+			var_dump($matches);
 		}
 		private function sortMatches($matches){
 			usort($matches, function($key1,$key2) {
